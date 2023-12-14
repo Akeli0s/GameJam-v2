@@ -10,11 +10,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     public GameObject firePoint;
     public GameObject bullet;
+    public int health = 5;
+    private GameObject timerGO;
+    private Timer timer;
     private Rigidbody2D rb;
     private float movementX;
     private float movementY;
     private Vector2 mousePos;
     private Quaternion rotation;
+
+    /*private void Awake()
+    {
+        
+
+        timer.timerStarts = true;
+    }*/
 
     private void Start()
     {
@@ -33,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Run()
     {
-        rb.velocity = new Vector2(movementX * moveSpeed, movementY * moveSpeed);
+        rb.velocity = new Vector2(movementX, movementY).normalized * moveSpeed;
     }
 
     private void RotateOnMousePos()
@@ -53,6 +63,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Instantiate(bullet, firePoint.transform.position, rotation);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy Bullet"))
+        {
+            health--;
         }
     }
 }
