@@ -6,19 +6,19 @@ using UnityEngine;
 public class ToxicTimer : MonoBehaviour
 {
     public TextMeshProUGUI toxicTimer;
-    public float toxTimer = 7f;
+    public float toxTimer = 20f;
     public int antidotesGathered = 0;
 
     private void Start()
     {
-        toxTimer = 12f;
+        toxTimer = 20f;
     }
 
     private void Update()
     {
         if (antidotesGathered == 3)
         {
-            toxTimer = 12f;
+            toxTimer = 20f;
         }
 
         toxTimer -= Time.deltaTime;
