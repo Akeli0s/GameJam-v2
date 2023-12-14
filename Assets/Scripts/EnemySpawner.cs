@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     public WaveManager waveManager;
     private bool waveStart = true;
     private int waveNum;
-    private int waveStartEnemy = 50;
+    private int waveStartEnemy = 75;
     private AIPath type1;
     private AIPath type2;
     private AIPath type3;
@@ -83,7 +83,7 @@ public class EnemySpawner : MonoBehaviour
                 {
                     waveStart = false;
                     waveNum += 1;
-                    waveNumEnemies += waveStartEnemy * + 25;
+                    waveNumEnemies += waveStartEnemy;
                     waveManager.UpdateWaveText(waveNum);
                     waveManager.ShowWaveIndicator();
                     StartCoroutine(DelaySpawn());
@@ -94,8 +94,9 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator DelaySpawn()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
+        Debug.Log("yeysysyesys");
         waveStart = true;
         type1.maxSpeed += 0.5f;
         waveManager.HideWaveIndicator();

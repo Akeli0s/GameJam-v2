@@ -8,6 +8,7 @@ public class WaveManager : MonoBehaviour
     public TextMeshProUGUI waveNumText;
     public TextMeshProUGUI gameOverHighestWave;
 
+    private float waveDuration;
     public TextMeshProUGUI waveIndicator;
     public TextMeshProUGUI waveIndicatorNum;
 
@@ -16,6 +17,17 @@ public class WaveManager : MonoBehaviour
         gameOverHighestWave.text = 1.ToString();
         ShowWaveIndicator();
         StartCoroutine("ShowDelayedWave1");
+    }
+
+    private void Update()
+    {
+        waveDuration += Time.deltaTime;
+
+        if (waveDuration > 78f)
+        {
+            HideWaveIndicator();
+            waveDuration = 0;
+        }
     }
 
     public void UpdateWaveText(int waveNumber)
