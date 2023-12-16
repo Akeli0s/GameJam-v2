@@ -265,6 +265,24 @@
       },
       "url": "https://packages.unity.com"
     },
+    "www.nulltale.oldmoviefx": {
+      "version": "https://github.com/NullTale/OldMovieFx.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.render-pipelines.universal": "14.0.6"
+      },
+      "hash": "ebfa3979ab41d1f6aa8bcf044f06b4b87247f386"
+    },
+    "www.nulltale.vhsfx": {
+      "version": "https://github.com/NullTale/VhsFx.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.render-pipelines.universal": "14.0.6"
+      },
+      "hash": "112f34616f2753db9fe3bd67746daf505cf60ad6"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
